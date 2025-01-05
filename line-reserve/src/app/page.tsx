@@ -5,10 +5,8 @@ export default function Home() {
     <div>
       <h1>LINE de Reserve</h1>
       <div className="links">
-        <Link href="../api/route.ts">
-          <a>
-            APIテスト
-          </a>
+        <Link href="/api">
+          APIテスト
         </Link>
 
 
