@@ -1,18 +1,20 @@
 # line-reservation-app
 LINEミニアプリorLIFFを利用した予約システム
 
+# 想定
+- 対象：個人レベルの飲食店や美容院などのサロン経営者
+- 抱える課題：予約を電話やSNSのDMで受け付けているが負担が多い
+- 理想の状態：LINE公式アカウントを利用して顧客側が予約を取れる、事前のやりとりが少ないまま予約を確定させることができる
+
 
 ## 技術選定
 - Javascript
 - React
 - Typescript
-- python
 
-### Frontend Framework
+### Framework
 - Next.js
 
-### Backend Framework
-- Django
 
 ## 概要
 公式LINEを利用して、登録者がショップの予約をとれるようなサービスを作りたい
