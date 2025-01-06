@@ -14,7 +14,7 @@ export async function POST(request: Request){
         }
         const events = requestData.events;
         for (const event of events) {
-            if(event.type === "message" && event.message === "予約"){
+            if(event.type === "message" && event.message.text === "予約"){
                 const REPLY_TOKEN = event.replyToken;
                 const userMessage = event.message.text;
 
