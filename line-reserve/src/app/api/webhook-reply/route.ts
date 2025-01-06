@@ -15,8 +15,6 @@ export async function POST(request: Request){
                 const REPLY_TOKEN = event.replyToken;
                 const userMessage = event.message.text;
 
-
-                
                 const options = {
                     method: "POST",
                     headers: {
