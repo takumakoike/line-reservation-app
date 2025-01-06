@@ -2,7 +2,8 @@
 export async function POST(request: Request){
     try{
         const CHANNEL_ACCESS_TOKEN = process.env.CHANNEL_ACCESS_TOKEN!;
-        const ENDPOINT_URL = "https://api.line.me/v2/bot/message/reply";
+        // const ENDPOINT_URL = "https://api.line.me/v2/bot/message/reply";
+        const ENDPOINT_URL = "https://api.line.me/v2/bot/message/push";
         const today = new Date();
         const tomorrow = new Date(today.getFullYear(), today.getMonth()+1, today.getDate()+1);
 
@@ -59,18 +60,15 @@ export async function POST(request: Request){
                                             }
                                         ]
                                     },
-                                    // "footer": {
-                                    //     "type": "button",
-                                    //     "action": {
-                                    //         "type":"datetimepicker",
-                                    //         "label": "日時選択",
-
-                                    //     }
-                                    
-                                    // }
                                     "footer" : {
-                                        "type": "text",
-                                        "text": `${today}`
+                                        "type": "box",
+                                        "layout": "vertical",
+                                        "contents" :[
+                                            {
+                                                "type": "text",
+                                                "text": `${today}`
+                                            }
+                                        ]
                                     }
                                 }
                                 
