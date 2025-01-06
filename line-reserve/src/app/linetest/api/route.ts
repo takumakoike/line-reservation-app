@@ -1,4 +1,3 @@
-import { error } from "console";
 import "dotenv/config";
 
 // POSTメソッドでブロードキャストメッセージ（全体）の定義
