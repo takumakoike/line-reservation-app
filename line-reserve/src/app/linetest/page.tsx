@@ -30,6 +30,7 @@ export default function lineTop() {
     return (
         <div>
             <button type="button" onClick={sendPushMessage}>ブロードキャストメッセージ送信</button>
+            <p>※現在はトークン情報を更新しているためメッセージは送信されません</p>
         </div>
     )
 }
