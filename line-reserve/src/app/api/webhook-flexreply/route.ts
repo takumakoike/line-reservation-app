@@ -1,9 +1,9 @@
 // webhookとして応答メッセージを送る
 export async function POST(request: Request){
     try{
-        const CHANNEL_ACCESS_TOKEN = process.env.CHANNEL_ACCESS_TOKEN!;
-        // const ENDPOINT_URL = "https://api.line.me/v2/bot/message/reply";
-        const ENDPOINT_URL = "https://api.line.me/v2/bot/message/push";
+        const LINE_ACCESS_TOKEN = process.env.CHANNEL_ACCESS_TOKEN ? process.env.CHANNEL_ACCESS_TOKEN : process.env.NEXT_PUBLIC_CHANNEL_ACCESS_TOKEN;
+        const ENDPOINT_URL = "https://api.line.me/v2/bot/message/reply";
+        // const ENDPOINT_URL = "https://api.line.me/v2/bot/message/push";
         const today = new Date();
         const tomorrow = new Date(today.getFullYear(), today.getMonth()+1, today.getDate()+1);
 
@@ -22,7 +22,7 @@ export async function POST(request: Request){
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
-                        "Authorization": `Bearer ${CHANNEL_ACCESS_TOKEN}`
+                        "Authorization": `Bearer ${LINE_ACCESS_TOKEN}`
                     },
                     body: JSON.stringify({
                         "replyToken": REPLY_TOKEN,
@@ -37,9 +37,10 @@ export async function POST(request: Request){
                             },
                             {
                                 "type": "flex",
-                                "size": "giga",
+                                "altText": "フレックスメッセージ",
                                 "contents": {
                                     "type": "bubble",
+                                    "size": "giga",
                                     "header": {
                                         "type": "box",
                                         "layout": "vertical",
