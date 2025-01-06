@@ -6,11 +6,11 @@ export default function Home() {
     <div>
       <h1>LINE de Reserve</h1>
       <div className="links">
-        <Link href="/api">
+        <Link href="./sample/api">
           APIテスト
         </Link>
 
-        <form action="/api" method='POST'>
+        <form action="./sample/api" method='POST'>
           <div>
             <label htmlFor="name">なまえ</label>
             <input type="text" id="name" name='name' />
