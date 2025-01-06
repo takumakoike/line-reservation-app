@@ -1,7 +1,9 @@
 import "dotenv/config";
 
 // POSTメソッドでブロードキャストメッセージ（全体）の定義
-export async function POST() {
+export async function POST(request:Request) {
+    const req = await request.json();
+    console.log(req);
     try {
         const LINE_ACCESS_TOKEN = process.env.CHANNEL_ACCESS_TOKEN ? process.env.CHANNEL_ACCESS_TOKEN : process.env.NEXT_PUBLIC_CHANNEL_ACCESS_TOKEN;
         const LINE_API_PATH = "https://api.line.me/v2/bot/message/broadcast";

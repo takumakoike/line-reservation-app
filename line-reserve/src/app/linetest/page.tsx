@@ -4,10 +4,13 @@ export default function lineTop() {
     // ページ遷移させず、ボタンクリックでメッセージ送信させるためのasync関数の定義
     const sendPushMessage = async () => {
         try {
-
             // apiをfetchメソッドで叩く
-            const response = await fetch("./api", {
+            const response = await fetch("../api/line-test/", {
                 "method": "POST",
+                "headers": {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ message: 'Hello LINE!' }),
             })
 
             // fetch結果に対するエラー処理
@@ -26,7 +29,7 @@ export default function lineTop() {
 
     return (
         <div>
-            <button type="button" onClick={sendPushMessage}>メッセージ送信</button>
+            <button type="button" onClick={sendPushMessage}>ブロードキャストメッセージ送信</button>
         </div>
     )
 }
