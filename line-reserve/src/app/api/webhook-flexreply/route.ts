@@ -74,14 +74,15 @@ export async function POST(request: Request){
 																				"action": {
 																					"type": "postback",
 																					"label": "today",
+																					"data": "action=today",
 																					"displayText": "今日の予約"
 																				}
-																					},
+																			},
 																			{
 																				"type": "button",
 																				"style": "secondary",
 																				"action": {
-																						"type": "text",
+																						"type": "message",
 																						"label": "明日の予約",
 																						"text": "tomorrow",
 																				}
