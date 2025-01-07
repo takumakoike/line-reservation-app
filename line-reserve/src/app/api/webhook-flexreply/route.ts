@@ -3,9 +3,7 @@ export async function POST(request: Request){
     try{
         const LINE_ACCESS_TOKEN = process.env.CHANNEL_ACCESS_TOKEN ? process.env.CHANNEL_ACCESS_TOKEN : process.env.NEXT_PUBLIC_CHANNEL_ACCESS_TOKEN;
         const ENDPOINT_URL = "https://api.line.me/v2/bot/message/reply";
-        // const ENDPOINT_URL = "https://api.line.me/v2/bot/message/push";
-        const today = new Date();
-        const tomorrow = new Date(today.getFullYear(), today.getMonth()+1, today.getDate()+1);
+
 
         const requestData = await request.json();
         if(!requestData || !requestData.events) {
@@ -57,7 +55,7 @@ export async function POST(request: Request){
                                         "contents": [
                                             {
                                                 "type": "text",
-                                                "text": `今日：${today}？それとも明日：${tomorrow}？`
+                                                "text": `今日：？それとも明日？`
                                             }
                                         ]
                                     },
@@ -67,9 +65,22 @@ export async function POST(request: Request){
                                         "contents" :[
                                             {
                                                 "type": "text",
-                                                "text": `${today}`
+                                                "text": "ここがフッターエリアです。\n文章量が多かったら改行させてみたいと思っています。",
+                                                "wrap": true,
                                             }
                                         ]
+                                    },
+                                    "styles": {
+                                        "header":{
+                                            "backgroundColor": "#f0f8ff"
+                                        },
+                                        "body": {
+                                            "backgroundColor": "#ffff00"
+                                        },
+                                        "footer": {
+                                            "separator": true,
+                                            "backgroundColor": "#7fff00"
+                                        }
                                     }
                                 }
                                 
